@@ -1,0 +1,8 @@
+## Interface: 120001
+## Title: StanceAlert
+## Notes: UI for warning me when my warrior is in the wrong stance
+## Version: 1.0.0
+## Author: Grawr
+## DefaultState: Enabled
+
+StanceAlert.lua
