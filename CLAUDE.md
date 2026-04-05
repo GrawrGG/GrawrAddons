@@ -60,6 +60,12 @@ AddonName.lua
 - `/reload` — reload UI after changing files
 - `/run <lua>` — quick API tests in-game
 
+## Git workflow
+
+- Do all development on a feature branch, not `main`
+- Branch name should reflect the addon or feature being worked on (e.g. `addon/my-addon-name`)
+- Open a PR to `main` when work is ready — do not merge it yourself
+
 ## Dependencies
 
 Avoid external libraries (LibStub, Ace3, etc.) unless genuinely necessary. Simple addons should be self-contained.
