@@ -28,6 +28,10 @@ GrawrAddons/
     └── modules/           # optional sub-modules
 ```
 
+### VS Code setup
+
+Install the [ketho.wow-api](https://marketplace.visualstudio.com/items?itemName=ketho.wow-api) extension for Lua IntelliSense against the WoW API. The `.vscode/settings.json` in this repo configures the Lua LSP to use it automatically.
+
 ### Resources
 
 - [WoW API reference](https://wowpedia.fandom.com/wiki/World_of_Warcraft_API)
