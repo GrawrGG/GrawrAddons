@@ -44,7 +44,7 @@ local function onReadyCheck()
 
     local warlocks = getGroupWarlocks()
     for _, name in ipairs(warlocks) do
-        SendChatMessage(WHISPER_MESSAGE, "WHISPER", nil, name)
+        C_ChatInfo.SendChatMessage(WHISPER_MESSAGE, "WHISPER", nil, name)
     end
 end
 
