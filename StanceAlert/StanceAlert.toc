@@ -1,0 +1,8 @@
+## Interface: 120001
+## Title: StanceAlert
+## Notes: Warns Warriors when in the wrong stance for their spec. Shows a red X when DPS is in Defensive Stance, or when Prot is NOT in Defensive Stance.
+## Version: 1.0.0
+## Author: Grawr
+## DefaultState: Enabled
+
+StanceAlert.lua
