@@ -1,5 +1,3 @@
-local _ = ...
-
 local SOULSTONE_SPELL_ID = 20707
 local LFR_DIFFICULTY_ID = 17
 local WHISPER_MESSAGE = "Don't forget to soulstone a healer before pull"
