@@ -3,6 +3,18 @@ local _ = ...
 local SOULSTONE_SPELL_ID = 20707
 local LFR_DIFFICULTY_ID = 17
 local WHISPER_MESSAGE = "Hey, no soulstone is out — can you soulstone a healer before the pull? Thanks!"
+local SELF_MESSAGE = "Soulstone a healer!"
+
+local function isPlayerWarlock()
+    local _, class = UnitClass("player")
+    return class == "WARLOCK"
+end
+
+local function alertSelf()
+    RaidNotice_AddMessage(RaidWarningFrame, SELF_MESSAGE, ChatTypeInfo["RAID_WARNING"])
+    PlaySound(SOUNDKIT.RAID_WARNING)
+    print(SELF_MESSAGE)
+end
 
 local function isLFR()
     local _, _, difficultyID = GetInstanceInfo()
@@ -50,6 +62,12 @@ local function onReadyCheck()
     if isLFR() then return end
 
     if groupHasSoulstone() then return end
+
+    -- Don't bother other warlocks if we can soulstone a healer ourselves
+    if isPlayerWarlock() then
+        alertSelf()
+        return
+    end
 
     local warlocks = getGroupWarlocks()
     for _, name in ipairs(warlocks) do
