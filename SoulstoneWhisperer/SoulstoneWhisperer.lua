@@ -2,7 +2,7 @@ local _ = ...
 
 local SOULSTONE_SPELL_ID = 20707
 local LFR_DIFFICULTY_ID = 17
-local WHISPER_MESSAGE = "Hey, no soulstone is out — can you soulstone a healer before the pull? Thanks!"
+local WHISPER_MESSAGE = "Don't forget to soulstone a healer before pull"
 local SELF_MESSAGE = "Soulstone a healer!"
 
 local function isPlayerWarlock()
