@@ -1,7 +1,13 @@
 local _ = ...
 
 local SOULSTONE_SPELL_ID = 20707
+local LFR_DIFFICULTY_ID = 17
 local WHISPER_MESSAGE = "Hey, no soulstone is out — can you soulstone a healer before the pull? Thanks!"
+
+local function isLFR()
+    local _, _, difficultyID = GetInstanceInfo()
+    return difficultyID == LFR_DIFFICULTY_ID
+end
 
 local function hasSoulstone(unit)
     local i = 1
@@ -40,6 +46,9 @@ end
 
 local function onReadyCheck()
     if not IsInRaid() then return end
+
+    if isLFR() then return end
+
     if groupHasSoulstone() then return end
 
     local warlocks = getGroupWarlocks()
