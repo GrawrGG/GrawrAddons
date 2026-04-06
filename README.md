@@ -6,7 +6,7 @@ Personal World of Warcraft addon collection for retail (The War Within), written
 
 | Name | Purpose | Status |
 |------|---------|--------|
-| *(none yet)* | | |
+| StanceAlert | UI for warning me when my warrior is in the wrong stance | Ready for use |
 
 ## Installation
 
