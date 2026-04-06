@@ -30,9 +30,12 @@ local function HasSoulstone(unit)
     return false
 end
 
-local function GroupHasSoulstone()
+local function HealerHasSoulstone()
     for i = 1, GetNumGroupMembers() do
-        if HasSoulstone("raid" .. i) then return true end
+        local unit = "raid" .. i
+        if UnitGroupRolesAssigned(unit) == "HEALER" and HasSoulstone(unit) then
+            return true
+        end
     end
     return false
 end
@@ -59,7 +62,7 @@ local function OnReadyCheck()
 
     if IsLFR() then return end
 
-    if GroupHasSoulstone() then return end
+    if HealerHasSoulstone() then return end
 
     -- Don't bother other warlocks if we can soulstone a healer ourselves
     if IsPlayerWarlock() then
