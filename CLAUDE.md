@@ -42,6 +42,7 @@ AddonName.lua
       end
   end)
   ```
+- **PascalCase functions** — use `PascalCase` for all function names to match the WoW API style
 - **No globals** — store all state in `ns`
 - **Delayed execution** — use `C_Timer.After(delay, fn)`, not OnUpdate
 - **Hooking Blizzard functions** — use `hooksecurefunc`
