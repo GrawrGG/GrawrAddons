@@ -1,0 +1,8 @@
+## Interface: 120001
+## Title: SoulstoneWhisperer
+## Notes: Automatically whisper the warlocks in the group to remind them to soulstone a healer when a ready check happens if there are no soulstones out
+## Version: 1.0.0
+## Author: Grawr
+## DefaultState: Enabled
+
+SoulstoneWhisperer.lua
