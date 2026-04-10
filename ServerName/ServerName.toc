@@ -1,0 +1,8 @@
+## Interface: 120001
+## Title: ServerName
+## Notes: Shows the name of the server the current player character is on
+## Version: 1.0.0
+## Author: Grawr
+## DefaultState: Enabled
+
+ServerName.lua
