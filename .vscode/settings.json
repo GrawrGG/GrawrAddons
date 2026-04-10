@@ -24,6 +24,7 @@
     "EditModeManagerFrame",
     "RunNextFrame",
     "EditModeSystemSettingsDialog",
-    "EditModeSystemMixin"
+    "EditModeSystemMixin",
+    "MinimapCluster"
   ]
 }
