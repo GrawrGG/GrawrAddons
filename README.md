@@ -6,6 +6,7 @@ Personal World of Warcraft addon collection for retail (The War Within), written
 
 | Name | Purpose | Status |
 |------|---------|--------|
+| CombatTimer | A simple combat timer addon that shows time-in-combat | In development |
 | SoulstoneWhisperer | Whisper warlocks to apply a soulstone in raid | In development |
 | StanceAlert | UI for warning me when my warrior is in the wrong stance | Ready for use |
 
