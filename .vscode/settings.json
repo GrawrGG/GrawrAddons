@@ -20,6 +20,7 @@
     "RaidWarningFrame",
     "ChatTypeInfo",
     "SOUNDKIT",
-    "GetUnitName"
+    "GetUnitName",
+    "MinimapCluster"
   ]
 }
