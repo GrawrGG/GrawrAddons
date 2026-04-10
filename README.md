@@ -36,9 +36,11 @@ Install the [ketho.wow-api](https://marketplace.visualstudio.com/items?itemName=
 
 ### Resources
 
-- [WoW API reference](https://wowpedia.fandom.com/wiki/World_of_Warcraft_API)
+- [WoW API reference](https://warcraft.wiki.gg/wiki/World_of_Warcraft_API)
 - [TOC format](https://wowpedia.fandom.com/wiki/TOC_format)
-- [Widget API](https://wowpedia.fandom.com/wiki/Widget_API)
+- [12.0.0 API Changes](https://warcraft.wiki.gg/wiki/Patch_12.0.0/API_changes)
+- [12.0.1 API Changes](https://warcraft.wiki.gg/wiki/Patch_12.0.1/API_changes)
+- [Midnight Secret Values discussion](https://warcraft.wiki.gg/wiki/Secret_Values)
 
 ## License
 
