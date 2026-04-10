@@ -20,6 +20,10 @@
     "RaidWarningFrame",
     "ChatTypeInfo",
     "SOUNDKIT",
-    "GetUnitName"
+    "GetUnitName",
+    "EditModeManagerFrame",
+    "RunNextFrame",
+    "EditModeSystemSettingsDialog",
+    "EditModeSystemMixin"
   ]
 }

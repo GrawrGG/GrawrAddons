@@ -4,5 +4,7 @@
 ## Version: 1.0.0
 ## Author: Grawr
 ## DefaultState: Enabled
+## RequiredDeps: FerrozEditModeLib
+## SavedVariables: CombatTimerDB
 
 CombatTimer.lua
