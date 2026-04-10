@@ -7,7 +7,6 @@ local function CreateRealmLabel()
     local anchor = MinimapCluster.BorderTop
     local label = MinimapCluster:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     label:SetPoint("TOP", anchor, "BOTTOM", 0, -0.5)
-    label:SetTextColor(1, 0.82, 0)
     return label
 end
 
