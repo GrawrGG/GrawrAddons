@@ -180,9 +180,10 @@ function frame:EditModeStopMock()
 end
 
 local function RegisterEditMode()
-    if FerrozEditModeLib and FerrozEditModeLib.Register then
+    local lib = LibStub and LibStub("FerrozEditModeLib-1.0", true)
+    if lib and lib.Register then
         if not CombatTimerDB then CombatTimerDB = {} end
-        FerrozEditModeLib:Register(frame, CombatTimerDB, { width = 120, height = 24 })
+        lib:Register(frame, CombatTimerDB, { width = 120, height = 24 })
     end
 end
 
