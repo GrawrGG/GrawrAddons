@@ -21,6 +21,10 @@
     "ChatTypeInfo",
     "SOUNDKIT",
     "GetUnitName",
+    "EditModeManagerFrame",
+    "RunNextFrame",
+    "EditModeSystemSettingsDialog",
+    "EditModeSystemMixin",
     "MinimapCluster"
   ]
 }

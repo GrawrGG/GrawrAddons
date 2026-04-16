@@ -1,0 +1,10 @@
+## Interface: 120001
+## Title: CombatTimer
+## Notes: A simple combat timer addon that shows time-in-combat
+## Version: 1.0.0
+## Author: Grawr
+## DefaultState: Enabled
+## RequiredDeps: FerrozEditModeLib
+## SavedVariables: CombatTimerDB
+
+CombatTimer.lua
