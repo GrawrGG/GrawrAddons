@@ -1,0 +1,8 @@
+## Interface: 120001
+## Title: SoundOutputToggle
+## Notes: A minimap button to toggle your sound output device
+## Version: 1.0.0
+## Author: Grawr
+## DefaultState: Enabled
+
+SoundOutputToggle.lua
