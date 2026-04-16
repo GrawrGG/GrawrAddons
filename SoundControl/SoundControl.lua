@@ -30,7 +30,7 @@ local function ApplyDevice(index)
 end
 
 local function IsEnabled(name)
-    local v = SoundOutputToggleDB.enabled[name]
+    local v = SoundControlDB.enabled[name]
     if v == nil then return true end
     return v
 end
@@ -46,7 +46,7 @@ local function GetEnabledDevices()
 end
 
 local function Notify(msg)
-    print("|cff88ccffSoundOutputToggle|r: " .. msg)
+    print("|cff88ccffSoundControl|r: " .. msg)
 end
 
 local function GetMasterVolume()
@@ -89,12 +89,12 @@ local function BuildContextMenu(_owner, root)
         root:CreateCheckbox(
             name,
             function() return IsEnabled(name) end,
-            function() SoundOutputToggleDB.enabled[name] = not IsEnabled(name) end
+            function() SoundControlDB.enabled[name] = not IsEnabled(name) end
         )
     end
 end
 
-local dataObj = LDB:NewDataObject("SoundOutputToggle", {
+local dataObj = LDB:NewDataObject("SoundControl", {
     type = "launcher",
     icon = ICON,
     OnClick = function(self, button)
@@ -112,7 +112,7 @@ local dataObj = LDB:NewDataObject("SoundOutputToggle", {
         local current = GetCurrentIndex()
         local name = Sound_GameSystem_GetOutputDriverNameByIndex(current) or "Unknown"
         local vol = math.floor(GetMasterVolume() * 100 + 0.5)
-        tt:AddLine("SoundOutputToggle")
+        tt:AddLine("SoundControl")
         tt:AddLine("Device: " .. name, 1, 1, 1)
         tt:AddLine("Volume: " .. vol .. "%", 1, 1, 1)
         tt:AddLine(" ")
@@ -125,10 +125,10 @@ local dataObj = LDB:NewDataObject("SoundOutputToggle", {
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("ADDON_LOADED")
 frame:SetScript("OnEvent", function(_self, event, ...)
-    if event == "ADDON_LOADED" and ... == "SoundOutputToggle" then
-        SoundOutputToggleDB = SoundOutputToggleDB or {}
-        SoundOutputToggleDB.enabled = SoundOutputToggleDB.enabled or {}
-        SoundOutputToggleDB.minimap = SoundOutputToggleDB.minimap or { hide = false }
-        LDBIcon:Register("SoundOutputToggle", dataObj, SoundOutputToggleDB.minimap)
+    if event == "ADDON_LOADED" and ... == "SoundControl" then
+        SoundControlDB = SoundControlDB or {}
+        SoundControlDB.enabled = SoundControlDB.enabled or {}
+        SoundControlDB.minimap = SoundControlDB.minimap or { hide = false }
+        LDBIcon:Register("SoundControl", dataObj, SoundControlDB.minimap)
     end
 end)

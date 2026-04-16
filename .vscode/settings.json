@@ -31,6 +31,9 @@
     "Sound_GameSystem_GetNumOutputDrivers",
     "Sound_GameSystem_GetOutputDriverNameByIndex",
     "Sound_GameSystem_RestartSoundSystem",
-    "SoundOutputToggleDB"
+    "SoundControlDB"
+  ],
+  "Lua.diagnostics.disable": [
+    "assign-type-mismatch"
   ]
 }
