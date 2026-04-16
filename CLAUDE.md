@@ -32,6 +32,7 @@ AddonName.lua
   ```lua
   local AddonName, ns = ...
   ```
+  Drop `ns` if the file doesn't reference it: `local AddonName = ...`
 - **Event handling** — use a frame, not OnUpdate polling:
   ```lua
   local frame = CreateFrame("Frame")
@@ -44,6 +45,7 @@ AddonName.lua
   ```
 - **PascalCase functions** — use `PascalCase` for all function names to match the WoW API style
 - **No globals** — store all state in `ns`
+- **Unused params** — use bare `_` for unused leading callback params (e.g. `function(_, event, ...)`); omit trailing unused params entirely. Don't use `_name` style.
 - **Delayed execution** — use `C_Timer.After(delay, fn)`, not OnUpdate
 - **Hooking Blizzard functions** — use `hooksecurefunc`
 

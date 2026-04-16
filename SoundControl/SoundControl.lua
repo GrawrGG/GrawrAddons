@@ -1,4 +1,4 @@
-local AddonName, ns = ...
+local AddonName = ...
 
 local LDB = LibStub("LibDataBroker-1.1")
 local LDBIcon = LibStub("LibDBIcon-1.0")
@@ -82,7 +82,7 @@ local function CycleDevice()
     Notify("switched to " .. next.name)
 end
 
-local function BuildContextMenu(_owner, root)
+local function BuildContextMenu(_, root)
     root:CreateTitle("Sound Output Devices")
     for _, d in ipairs(GetDevices()) do
         local name = d.name
@@ -94,7 +94,7 @@ local function BuildContextMenu(_owner, root)
     end
 end
 
-local dataObj = LDB:NewDataObject("SoundControl", {
+local dataObj = LDB:NewDataObject(AddonName, {
     type = "launcher",
     icon = ICON,
     OnClick = function(self, button)
@@ -124,11 +124,11 @@ local dataObj = LDB:NewDataObject("SoundControl", {
 
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("ADDON_LOADED")
-frame:SetScript("OnEvent", function(_self, event, ...)
-    if event == "ADDON_LOADED" and ... == "SoundControl" then
+frame:SetScript("OnEvent", function(_, event, ...)
+    if event == "ADDON_LOADED" and ... == AddonName then
         SoundControlDB = SoundControlDB or {}
         SoundControlDB.enabled = SoundControlDB.enabled or {}
         SoundControlDB.minimap = SoundControlDB.minimap or { hide = false }
-        LDBIcon:Register("SoundControl", dataObj, SoundControlDB.minimap)
+        LDBIcon:Register(AddonName, dataObj, SoundControlDB.minimap)
     end
 end)
