@@ -25,6 +25,15 @@
     "RunNextFrame",
     "EditModeSystemSettingsDialog",
     "EditModeSystemMixin",
-    "MinimapCluster"
+    "MinimapCluster",
+    "LibStub",
+    "MenuUtil",
+    "Sound_GameSystem_GetNumOutputDrivers",
+    "Sound_GameSystem_GetOutputDriverNameByIndex",
+    "Sound_GameSystem_RestartSoundSystem",
+    "SoundControlDB"
+  ],
+  "Lua.diagnostics.disable": [
+    "assign-type-mismatch"
   ]
 }
