@@ -30,16 +30,16 @@ local function ApplyDevice(index)
 end
 
 local function IsEnabled(name)
-    local v = SoundControlDB.enabled[name]
-    if v == nil then return true end
-    return v
+    local isEnabled = SoundControlDB.enabled[name]
+    if isEnabled == nil then return true end
+    return isEnabled
 end
 
 local function GetEnabledDevices()
     local enabled = {}
-    for _, d in ipairs(GetDevices()) do
-        if IsEnabled(d.name) then
-            enabled[#enabled + 1] = d
+    for _, device in ipairs(GetDevices()) do
+        if IsEnabled(device.name) then
+            enabled[#enabled + 1] = device
         end
     end
     return enabled
@@ -67,25 +67,25 @@ local function CycleVolume()
 end
 
 local function CycleDevice()
-    local enabled = GetEnabledDevices()
-    if #enabled < 2 then
+    local enabledDevices = GetEnabledDevices()
+    if #enabledDevices < 2 then
         Notify("need at least 2 enabled devices to cycle (right-click to configure).")
         return
     end
     local current = GetCurrentIndex()
     local pos = 1
-    for i, d in ipairs(enabled) do
-        if d.index == current then pos = i; break end
+    for i, device in ipairs(enabledDevices) do
+        if device.index == current then pos = i; break end
     end
-    local next = enabled[(pos % #enabled) + 1]
+    local next = enabledDevices[(pos % #enabledDevices) + 1]
     ApplyDevice(next.index)
     Notify("switched to " .. next.name)
 end
 
 local function BuildContextMenu(_, root)
     root:CreateTitle("Sound Output Devices")
-    for _, d in ipairs(GetDevices()) do
-        local name = d.name
+    for _, device in ipairs(GetDevices()) do
+        local name = device.name
         root:CreateCheckbox(
             name,
             function() return IsEnabled(name) end,
