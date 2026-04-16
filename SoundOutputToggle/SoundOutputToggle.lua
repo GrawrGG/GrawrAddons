@@ -4,6 +4,7 @@ local LDB = LibStub("LibDataBroker-1.1")
 local LDBIcon = LibStub("LibDBIcon-1.0")
 
 local ICON = "Interface\\COMMON\\VoiceChat-Speaker"
+local VOLUME_STEPS = { 0.1, 0.25, 0.5, 0.75, 1.0 }
 
 local function GetDevices()
     local devices = {}
@@ -48,6 +49,23 @@ local function Notify(msg)
     print("|cff88ccffSoundOutputToggle|r: " .. msg)
 end
 
+local function GetMasterVolume()
+    return tonumber(GetCVar("Sound_MasterVolume")) or 1.0
+end
+
+local function CycleVolume()
+    local current = GetMasterVolume()
+    local next = VOLUME_STEPS[1]
+    for _, step in ipairs(VOLUME_STEPS) do
+        if step > current + 0.0001 then
+            next = step
+            break
+        end
+    end
+    SetCVar("Sound_MasterVolume", next)
+    Notify(string.format("volume set to %d%%", math.floor(next * 100 + 0.5)))
+end
+
 local function CycleDevice()
     local enabled = GetEnabledDevices()
     if #enabled < 2 then
@@ -81,7 +99,11 @@ local dataObj = LDB:NewDataObject("SoundOutputToggle", {
     icon = ICON,
     OnClick = function(self, button)
         if button == "LeftButton" then
-            CycleDevice()
+            if IsControlKeyDown() then
+                CycleDevice()
+            else
+                CycleVolume()
+            end
         elseif button == "RightButton" then
             MenuUtil.CreateContextMenu(self, BuildContextMenu)
         end
@@ -89,10 +111,13 @@ local dataObj = LDB:NewDataObject("SoundOutputToggle", {
     OnTooltipShow = function(tt)
         local current = GetCurrentIndex()
         local name = Sound_GameSystem_GetOutputDriverNameByIndex(current) or "Unknown"
+        local vol = math.floor(GetMasterVolume() * 100 + 0.5)
         tt:AddLine("SoundOutputToggle")
-        tt:AddLine("Current: " .. name, 1, 1, 1)
+        tt:AddLine("Device: " .. name, 1, 1, 1)
+        tt:AddLine("Volume: " .. vol .. "%", 1, 1, 1)
         tt:AddLine(" ")
-        tt:AddLine("Left-click: cycle enabled devices", 0, 1, 0)
+        tt:AddLine("Left-click: cycle master volume", 0, 1, 0)
+        tt:AddLine("Ctrl+Left-click: cycle enabled devices", 0, 1, 0)
         tt:AddLine("Right-click: enable/disable devices", 0, 1, 0)
     end,
 })
