@@ -6,6 +6,7 @@ Personal World of Warcraft addon collection for retail (The War Within), written
 
 | Name | Purpose | Status |
 |------|---------|--------|
+| BrokenGear | An addon to shout at you when your gear is broken | In development |
 | CombatTimer | A simple combat timer addon that shows time-in-combat | Ready for use |
 | ServerName | Shows the name of the server the current player character is on | Ready for use |
 | SoulstoneWhisperer | Whisper warlocks to apply a soulstone in raid | In development |
