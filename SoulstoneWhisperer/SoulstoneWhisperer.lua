@@ -19,6 +19,11 @@ local function IsLFR()
     return difficultyID == LFR_DIFFICULTY_ID
 end
 
+local function IsInRaidInstance()
+    local _, instanceType = IsInInstance()
+    return instanceType == "raid"
+end
+
 local function HasSoulstone(unit)
     local i = 1
     while true do
@@ -59,6 +64,8 @@ end
 
 local function OnReadyCheck()
     if not IsInRaid() then return end
+
+    if not IsInRaidInstance() then return end
 
     if IsLFR() then return end
 
