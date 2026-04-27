@@ -70,12 +70,12 @@ local function UpdateAlert()
     local worst, anyBroken = GetWorstDurability()
 
     if anyBroken then
-        alert.text:SetText("Repair your gear!")
+        alert.text:SetText("Your gear is broken!")
         alert.text:SetTextColor(1, 0.1, 0.1)
         alert:Show()
         if not alert.anim:IsPlaying() then alert.anim:Play() end
     elseif worst < YELLOW_THRESHOLD then
-        alert.text:SetText("Your gear is broken!")
+        alert.text:SetText("Repair your gear!")
         alert.text:SetTextColor(1, 0.85, 0.1)
         alert:Show()
         if not alert.anim:IsPlaying() then alert.anim:Play() end
