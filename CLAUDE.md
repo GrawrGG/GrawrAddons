@@ -14,7 +14,7 @@ AddonName/
 ## TOC file
 
 ```
-## Interface: 120001
+## Interface: 120005
 ## Title: AddonName
 ## Notes: Short description
 ## Version: 1.0.0
