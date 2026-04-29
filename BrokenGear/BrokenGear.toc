@@ -1,4 +1,4 @@
-## Interface: 120001
+## Interface: 120005
 ## Title: BrokenGear
 ## Notes: An addon to shout at you when your gear is broken
 ## Version: 1.0.0
