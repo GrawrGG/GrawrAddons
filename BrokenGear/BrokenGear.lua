@@ -5,7 +5,10 @@ local SLOTS = {
     "FEETSLOT", "WRISTSLOT", "HANDSSLOT", "MAINHANDSLOT", "SECONDARYHANDSLOT",
 }
 
-local YELLOW_THRESHOLD = 0.25
+local LOW_DURABILITY_THRESHOLD = 0.25
+
+local BROKEN_GEAR_TEXT_COLOR = CreateColor(1, 0.1, 0.1)
+local LOW_DURABILITY_GEAR_TEXT_COLOR = CreateColor(1, 0.85, 0.1)
 
 local alert
 local function CreateAlert()
@@ -58,30 +61,36 @@ local function GetWorstDurability()
     return worst, anyBroken
 end
 
+local function ShowAlert(text, color)
+    alert.text:SetText(text)
+    alert.text:SetTextColor(color.r, color.g, color.b)
+    alert:Show()
+    if not alert.anim:IsPlaying() then alert.anim:Play() end
+end
+
+local function HideAlert()
+    if alert then
+        alert.anim:Stop()
+        alert:Hide()
+    end
+end
+
 local function UpdateAlert()
     if not alert then return end
 
     if InCombatLockdown() or UnitAffectingCombat("player") then
-        alert.anim:Stop()
-        alert:Hide()
+        HideAlert()
         return
     end
 
     local worst, anyBroken = GetWorstDurability()
 
     if anyBroken then
-        alert.text:SetText("Your gear is broken!")
-        alert.text:SetTextColor(1, 0.1, 0.1)
-        alert:Show()
-        if not alert.anim:IsPlaying() then alert.anim:Play() end
-    elseif worst < YELLOW_THRESHOLD then
-        alert.text:SetText("Repair your gear!")
-        alert.text:SetTextColor(1, 0.85, 0.1)
-        alert:Show()
-        if not alert.anim:IsPlaying() then alert.anim:Play() end
+        ShowAlert("Your gear is broken!", BROKEN_GEAR_TEXT_COLOR)
+    elseif worst < LOW_DURABILITY_THRESHOLD then
+        ShowAlert("Repair your gear!", LOW_DURABILITY_GEAR_TEXT_COLOR)
     else
-        alert.anim:Stop()
-        alert:Hide()
+        HideAlert()
     end
 end
 
@@ -96,10 +105,7 @@ frame:SetScript("OnEvent", function(_, event, arg1)
     if event == "ADDON_LOADED" and arg1 == AddonName then
         alert = CreateAlert()
     elseif event == "PLAYER_REGEN_DISABLED" then
-        if alert then
-            alert.anim:Stop()
-            alert:Hide()
-        end
+        HideAlert()
     else
         UpdateAlert()
     end
