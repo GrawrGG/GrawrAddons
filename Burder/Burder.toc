@@ -1,0 +1,8 @@
+## Interface: 120005
+## Title: Burder
+## Notes: Permanent Belo'ren health bar embedded in your UI
+## Version: 1.0.0
+## Author: Grawr
+## DefaultState: Enabled
+
+Burder.lua
